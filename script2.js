@@ -20,3 +20,8 @@ const getPeople = async (fetch) => {
         results: data.results
       }
 }
+
+module.exports = {
+  getPeople,
+  getPeoplePromise
+}
