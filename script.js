@@ -7,12 +7,16 @@ const googleDatabase = [
   'catspictures.com'
 ]
 
-const googleSearch = (searchInput) => {
-  const matches = googleDatabase.filter(website => {
+//Use Dependency Injection For Db
+const googleSearch = (searchInput, db) => {
+  const matches = db.filter(website => {
     return website.includes(searchInput);
   })
 
   return matches.length > 3 ? matches.slice(0,3) : matches;
 }
 
-console.log(googleSearch("cats"));
+// console.log(googleSearch("cats", googleDatabase));
+
+//commonjs export
+module.exports = googleSearch;
